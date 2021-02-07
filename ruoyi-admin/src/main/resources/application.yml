@@ -1,0 +1,5 @@
+# Spring配置
+spring:
+  profiles:
+    # 开发环境
+    active: common, db-dev, dev

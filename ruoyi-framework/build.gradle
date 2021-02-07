@@ -1,0 +1,22 @@
+group 'com.ruoyi.framework'
+description = 'ruoyi-framework'
+
+jar.enabled = true
+bootJar.enabled = false
+
+dependencies {
+    compile project(':ruoyi-system')
+
+    compile "com.alibaba:druid-spring-boot-starter:${springDruidVersion}"
+
+    compile "org.apache.shiro:shiro-spring:${shiroVersion}"
+
+    compile 'com.github.oshi:oshi-core:5.2.5'
+    compile 'com.github.penggle:kaptcha:2.3.2'
+    compile 'com.github.theborakompanioni:thymeleaf-extras-shiro:2.0.0'
+
+    compile "net.java.dev.jna:jna:${jnaVersion}"
+    compile "net.java.dev.jna:jna-platform:${jnaVersion}"
+
+    compile 'eu.bitwalker:UserAgentUtils:1.19'
+}

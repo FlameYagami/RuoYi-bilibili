@@ -1,0 +1,9 @@
+rootProject.name = 'RuoYi-bilibili'
+
+include 'ruoyi-common'
+include 'ruoyi-system'
+include 'ruoyi-framework'
+include 'ruoyi-admin'
+
+include 'ruoyi-quartz'
+include 'ruoyi-http'

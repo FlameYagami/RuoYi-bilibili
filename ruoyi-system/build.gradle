@@ -1,0 +1,9 @@
+group 'com.ruoyi.system'
+description = 'ruoyi-system'
+
+jar.enabled = true
+bootJar.enabled = false
+
+dependencies {
+    compile project(':ruoyi-common')
+}

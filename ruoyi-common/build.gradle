@@ -1,0 +1,31 @@
+group 'com.ruoyi.common'
+description = 'ruoyi-common'
+
+jar.enabled = true
+bootJar.enabled = false
+
+dependencies {
+    implementation "org.springframework:spring-context-support:${springFrameworkVersion}"
+    implementation "org.springframework:spring-web:${springFrameworkVersion}"
+
+    compile "org.apache.shiro:shiro-core:${shiroVersion}"
+    compile "org.apache.shiro:shiro-ehcache:${shiroVersion}"
+
+    compile 'org.apache.poi:poi-ooxml:3.17'
+    compile 'org.yaml:snakeyaml:1.23'
+
+    compile 'javax.validation:validation-api:2.0.1.Final'
+    compile 'javax.servlet:javax.servlet-api:4.0.1'
+
+    compile "commons-fileupload:commons-fileupload:${commonsFileUploadVersion}"
+    compile "commons-io:commons-io:${commonsIOVersion}"
+
+    compile "com.google.code.gson:gson:${gsonVersion}"
+    compile "com.alibaba:fastjson:${fastjsonVersion}"
+
+    compile "com.baomidou:mybatis-plus-boot-starter:${mybatisplusVersion}"
+    compile ("com.github.pagehelper:pagehelper-spring-boot-starter:${pagehelperVersion}") {
+        exclude group: 'org.mybatis', module: 'mybatis'
+        exclude group: 'org.mybatis', module: 'mybatis-spring'
+    }
+}

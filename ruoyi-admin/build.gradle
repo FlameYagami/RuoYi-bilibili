@@ -1,0 +1,16 @@
+group 'com.ruoyi.admin'
+description = 'ruoyi-admin'
+
+dependencies {
+    implementation project(':ruoyi-framework')
+    implementation project(':ruoyi-quartz')
+    implementation project(':ruoyi-http')
+
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-devtools'
+
+    implementation "io.swagger:swagger-models:${swaggerVersion}"
+    implementation "io.swagger:swagger-annotations:${swaggerVersion}"
+    implementation "io.springfox:springfox-swagger2:${swaggerSpringFoxVersion}"
+    implementation "io.springfox:springfox-swagger-ui:${swaggerSpringFoxVersion}"
+}
