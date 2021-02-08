@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * Created by Flame on 2021/02/07.
  **/
@@ -15,4 +17,5 @@ public class RelationStatus {
     private long id;
     private long mid;
     private long follower;
+    private Date createDate;
 }

@@ -1,10 +1,10 @@
 package com.ruoyi.web.task;
 
+import com.ruoyi.common.utils.GsonUtils;
 import com.ruoyi.http.func.CallbackFunc;
 import com.ruoyi.web.api.BilibiliApi;
 import com.ruoyi.web.controller.demo.dto.RelationStatusResponse;
-import com.ruoyi.web.manager.RedisManager;
-import com.ruoyi.web.service.intf.IbilibiliService;
+import com.ruoyi.web.service.intf.IBilibiliService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,10 +19,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class RelationStatusTask {
 
-    private final IbilibiliService ibilibiliService;
+    private final IBilibiliService ibilibiliService;
 
     @Autowired
-    public RelationStatusTask(IbilibiliService ibilibiliService) {
+    public RelationStatusTask(IBilibiliService ibilibiliService) {
         this.ibilibiliService = ibilibiliService;
     }
 
@@ -31,10 +31,11 @@ public class RelationStatusTask {
 
             @Override
             public void onResponse(RelationStatusResponse response) {
-                long status = response.getData().getFollower() - RedisManager.getInstance().getFollower();
-                RedisManager.getInstance().syncFollowerStatus(status);
-                RedisManager.getInstance().syncFollower(response.getData().getFollower());
-                ibilibiliService.save(response.getData());
+
+//                long status = response.getData().getFollower() - RedisManager.getInstance().getFollower();
+//                RedisManager.getInstance().syncFollowerStatus(status);
+//                RedisManager.getInstance().syncFollower(response.getData().getFollower());
+//                ibilibiliService.save(response.getData());
             }
 
             @Override

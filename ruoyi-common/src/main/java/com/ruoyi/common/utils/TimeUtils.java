@@ -1,12 +1,10 @@
 package com.ruoyi.common.utils;
 
+import lombok.val;
 import org.springframework.util.StringUtils;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-import java.util.TimeZone;
+import java.util.*;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,6 +18,8 @@ public class TimeUtils {
     public static String Format_Month = "yyyy-MM";
     public static String Format_Day   = "yyyy-MM-dd";
     public static String Format_Time  = "yyyy-MM-dd HH:mm:ss";
+    public static String Format_Minute  = "yyyy-MM-dd HH:mm";
+    public static String Format_Hour  = "yyyy-MM-dd HH";
 
     private static SimpleDateFormat getSimpleDateFormat() {
         return new SimpleDateFormat(Format_Time);
@@ -122,5 +122,12 @@ public class TimeUtils {
             day = 7;
         }
         return String.valueOf(day);
+    }
+
+    public static Date rollTime(Date date, int millisecond)  {
+        Calendar calendar  = new GregorianCalendar();
+        calendar.setTime(date);
+        calendar.add(Calendar.MILLISECOND, millisecond);
+        return calendar.getTime();
     }
 }
