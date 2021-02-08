@@ -1,9 +1,9 @@
 package com.ruoyi.web.task;
 
-import com.ruoyi.common.utils.GsonUtils;
 import com.ruoyi.http.func.CallbackFunc;
 import com.ruoyi.web.api.BilibiliApi;
 import com.ruoyi.web.controller.demo.dto.RelationStatusResponse;
+import com.ruoyi.web.manager.RedisManager;
 import com.ruoyi.web.service.intf.IBilibiliService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,11 +31,10 @@ public class RelationStatusTask {
 
             @Override
             public void onResponse(RelationStatusResponse response) {
-
-//                long status = response.getData().getFollower() - RedisManager.getInstance().getFollower();
-//                RedisManager.getInstance().syncFollowerStatus(status);
-//                RedisManager.getInstance().syncFollower(response.getData().getFollower());
-//                ibilibiliService.save(response.getData());
+                long status = response.getData().getFollower() - RedisManager.getInstance().getFollower();
+                RedisManager.getInstance().syncFollowerStatus(status);
+                RedisManager.getInstance().syncFollower(response.getData().getFollower());
+                ibilibiliService.save(response.getData());
             }
 
             @Override

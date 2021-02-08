@@ -4,6 +4,7 @@ import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.web.controller.demo.dto.RealtimeData;
 
+import com.ruoyi.web.manager.RedisManager;
 import com.ruoyi.web.service.intf.IBilibiliService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Param;
@@ -34,8 +35,8 @@ public class ReportController extends BaseController {
     @ResponseBody
     public AjaxResult realtimeData() {
         RealtimeData realtimeData = new RealtimeData();
-//        realtimeData.setFollower(RedisManager.getInstance().getFollower());
-//        realtimeData.setFollowerStatus(RedisManager.getInstance().getFollowerStatus());
+        realtimeData.setFollower(RedisManager.getInstance().getFollower());
+        realtimeData.setFollowerStatus(RedisManager.getInstance().getFollowerStatus());
         return AjaxResult.success(realtimeData);
     }
 
